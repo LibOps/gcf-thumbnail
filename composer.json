@@ -1,0 +1,24 @@
+{
+    "name": "libops/gcf-thumbnail",
+    "description": "Google Cloud Function to create a thumbnail when an image is uploaded to a Google Cloud Storage bucket",
+    "type": "libops-gcf",
+    "homepage": "https://github.com/LibOps/gcf-thumbnail",
+    "support": {
+        "issues": "https://github.com/LibOps/gcf-thumbnail/issues"
+    },
+    "require": {
+        "php": ">= 8.1",
+        "google/cloud-storage": "^1.28.0",
+        "google/cloud-functions-framework": "^1.1"
+    },
+    "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "FUNCTION_SIGNATURE_TYPE=cloudevent FUNCTION_TARGET=helloGCS php -S localhost:${PORT:-8080} vendor/google/cloud-functions-framework/router.php"
+        ]
+    },
+    "require-dev": {
+        "google/cloud-logging": "^1.21"
+    }
+}
+
