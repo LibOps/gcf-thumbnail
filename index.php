@@ -17,9 +17,7 @@ function CreateThumbnail(CloudEventInterface $cloudEvent) {
     }
 
     // download the object that triggered this event
-    $storage = new StorageClient([
-        'projectId' => 'libops-abcdef02',
-    ]);
+    $storage = new StorageClient();
     $bucket = $storage->bucket($data['bucket']);
     $object = $bucket->object($data['name']);
     $filename = basename($data['name']);
